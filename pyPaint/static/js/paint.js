@@ -1,15 +1,24 @@
 var canvas = document.getElementById('paint');
+var ctx;
 if (canvas.getContext) {
-    var ctx = canvas.getContext('2d');
+    ctx = canvas.getContext('2d');
     // drawing code here
 } else {
     alert("Unsupported");
 }
 
+// ctx.save();
+
 var sketch = document.getElementById('sketch');
 var sketch_style = getComputedStyle(sketch);
-canvas.width = 500;
-canvas.height = 250;
+var browser_width = window.innerWidth;
+var browser_height = window.innerHeight;
+canvas.width = browser_width * .9;
+canvas.height = browser_height * .9;
+
+var mode="brush";
+$("#brush").on("click", function(){ mode="brush"; });
+$("#eraser").on("click", function(){ mode="eraser"; });
 
 var mouse = {x: 0, y: 0};
 
@@ -47,3 +56,8 @@ var onPaint = function() {
     ctx.lineTo(mouse.x, mouse.y);
     ctx.stroke();
 };
+
+$('#reset').on("click", function() {     
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+});
