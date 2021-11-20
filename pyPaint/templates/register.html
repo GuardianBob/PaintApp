@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/loginstyle.css' %}">
+    <title>User Registration and Login</title>
+    <script type="text/javascript">
+        function checkPass() {
+            var reg_pass = $("#id_password1").val();
+            var checkPass = $("#id_password2").val();            
+            if ($("#id_password2").val() == $("#id_password1").val()) {
+                $("#c_pass").html("");
+                $("#submit").attr("disabled", false);
+            } else {
+                $("#c_pass").html("Passwords do not match!");
+                $("#submit").attr("disabled", true);
+            }
+        }        
+
+        function showPass() {
+            var password = document.getElementById("id_password1");
+            if (password.type === "password") {
+                password.type = "text";
+            } else {
+                password.type = "password";
+            }
+        }
+
+        $(document).ready(function () {
+            //$('#navigation').load('navi.html');
+            $("submit").attr("disabled", true)   
+            $("#id_password2").keyup(checkPass);
+        });
+    </script>
+</head>
+<body>
+    <section class="min-vh-100 py-5">
+        <div class="container">
+            <div class="row justify-content-center mb-md-6">
+            <div class="col-auto">
+                <a href="/">
+                    <!-- <img src="" alt="logo">  -->
+                </a>
+            </div>
+            </div>
+            <div class="row justify-content-center pt-6">
+            <div class="col-xl-4 col-lg-5 col-md-6">
+                <div class="text-center mb-4">
+                <h1 class="mb-1">Create Account</h1>
+                </div>
+                <br>
+                <form action="{% url 'validate_register' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ register_form }}
+                            <span class="errmsg" id="c_pass"></span></label><br>
+                            <input type="checkbox" onclick="showPass()">  Show Password <hr>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn-block btn btn-primary" type="submit">Register</button>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="signup-agree">
+                        <label class="custom-control-label text-small text-muted" for="signup-agree">I agree to the <a href="#">Terms & Conditions</a></label>
+                    </div>
+                    <hr>
+                    <div class="text-center text-small text-muted">
+                        <span>Already have an account? <a href="{% url 'login' %}">Sign In</a>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
