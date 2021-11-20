@@ -1,8 +1,10 @@
 
 
 <div class="btn-group btn-group-toggle" data-toggle="buttons" id="controls">
-    <button class="btn btn-secondary active" id="brush">Brush</button>
-    <button class="btn btn-secondary" id="eraser">Eraser</button>
+    <button class="btn btn-secondary mode active" id="brush" mode="draw">Brush</button>
+    <button class="btn btn-secondary mode" id="eraser" mode="draw">Eraser</button>
+    <button class="btn btn-secondary mode" id="circles" mode="stamp">Circles</button>
+    <button class="btn btn-secondary mode" id="squares" mode="stamp">Squares</button>
     <label for="color" class="btn btn-outline-secondary">
         <div>Color:</div>
         <input type="color" name="color" id="colorPicker" class="btn p-0" style="height:25px; font-size:small; width: 50px;">

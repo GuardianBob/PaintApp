@@ -1,10 +1,13 @@
-var store_brush;
-var store_color;
+let brush = {};
+let eraser = {};
+let stamp = {};
+var tool = "brush";
 var colorPicker = document.querySelector("#colorPicker");
 var slider = document.getElementById("brush_size");
 var output = document.getElementById("b_size");
 output.innerHTML = slider.value;
-var store_eraser = slider.value;
+eraser.size = "25";
+stamp.size = "10";
 
 slider.oninput = function() {
     output.innerHTML = this.value;
@@ -13,39 +16,60 @@ slider.oninput = function() {
 
 function startup() {        
     colorPicker.value = defaultColor;
-    colorPicker.addEventListener("input", updateFirst, false);
-    colorPicker.addEventListener("change", updateAll, false);
+    // colorPicker.addEventListener("input", updateFirst, false);
+    // colorPicker.addEventListener("change", updateAll, false);
     colorPicker.select();
 }
 
-colorPicker.addEventListener("change", watchColorPicker, false);
+colorPicker.addEventListener("input", watchColorPicker, false);
 
 function watchColorPicker(event) {
     // $("#color_code").css('color', event.target.value);
-    getColor(event.target.value)
-    // $('#brush').trigger("click");
+    getColor(event.target.value);
+    if(tool == "eraser"){
+        tool = "brush";
+        getSize(brush.size);
+        output.innerHTML = brush.size;
+        slider.value = brush.size;
+        $("#brush").addClass('active').siblings().removeClass('active');
+    }
+
 }
 
-// remove this once controls are finished 
-$('.btn-secondary').on("click", function() {
-    $(this).addClass('active').siblings().removeClass('active')
-});
 
-$('#eraser').on("click", function() {
-    $(this).addClass('active').siblings().removeClass('active')
-    store_brush = slider.value;
-    store_color = colorPicker.value;
-    getSize(store_eraser);
-    getColor('#FFFFFF');
-    output.innerHTML = store_eraser;
-    slider.value = store_eraser;
-})
+function set_tool(tool, sel_tool){
+    switch(tool) {
+        case 'brush':
+            brush.size = slider.value;
+            brush.color = colorPicker.value;
+            break;
+        case 'eraser':
+            eraser.size = slider.value;
+            break;
+        case 'circles':
+        case 'squares':
+            stamp.size = slider.value;
+            stamp.color = colorPicker.value;
+            break;
+    };    
+    switchTool(sel_tool);
+}
 
-$('#brush').on("click", function() {
-    store_eraser = slider.value;
-    $(this).addClass('active').siblings().removeClass('active')
-    getSize(store_brush);
-    getColor(store_color);
-    output.innerHTML = store_brush;
-    slider.value = store_brush;
-})
+function switchTool(sel_tool) {
+    tool = sel_tool;
+    switch(sel_tool) {
+        case 'brush':
+            typeof brush.size === 'undefined' ? null : slider.value = brush.size, output.innerHTML = brush.size, getSize(brush.size);
+            typeof brush.color === 'undefined' ? null : colorPicker.value = brush.color, getColor(brush.color);
+            break;
+        case 'eraser':
+            typeof eraser.size === 'undefined' ? null : slider.value = eraser.size, output.innerHTML = eraser.size, getColor('white'), getSize(eraser.size);
+            break;
+        case 'circles':
+        case 'squares':
+            typeof stamp.size === 'undefined' ? null : slider.value = stamp.size, output.innerHTML = stamp.size, getSize(stamp.size);
+            typeof stamp.color === 'undefined' ? null : colorPicker.value = stamp.color, getColor(stamp.color);
+            break;
+        
+    }
+}

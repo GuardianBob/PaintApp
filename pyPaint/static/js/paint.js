@@ -16,9 +16,17 @@ var browser_height = window.innerHeight;
 canvas.width = browser_width * .9;
 canvas.height = browser_height * .9;
 
-var mode="brush";
-$("#brush").on("click", function(){ mode="brush"; });
-$("#eraser").on("click", function(){ mode="eraser"; });
+var mode="draw";
+var tool = "brush";
+$(".mode").on("click", function(){ 
+    mode=$(this).attr('mode'); 
+    // tool=$(this).attr('id');
+    // console.log(mode, tool);    
+    let sel_tool = $(this).attr('id');
+    set_tool(tool, sel_tool);
+    $(this).addClass('active').siblings().removeClass('active')
+});
+
 
 var mouse = {x: 0, y: 0};
 
@@ -33,19 +41,23 @@ ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 
 ctx.strokeStyle = "black";
-function getColor(colour){ctx.strokeStyle = colour;}
+function getColor(color){ctx.strokeStyle = color;}
 
 function getSize(size){ctx.lineWidth = size;}
 
 
 //ctx.strokeStyle = 
-//ctx.strokeStyle = document.settings.colour[1].value;
+//ctx.strokeStyle = document.settings.color[1].value;
 
 canvas.addEventListener('mousedown', function(e) {
-    ctx.beginPath();
-    ctx.moveTo(mouse.x, mouse.y);
+    if(mode == "stamp"){
+        onStamp();
+    }else {
+        ctx.beginPath();
+        ctx.moveTo(mouse.x, mouse.y);
 
-    canvas.addEventListener('mousemove', onPaint, false);
+        canvas.addEventListener('mousemove', onPaint, false);
+    }    
 }, false);
 
 canvas.addEventListener('mouseup', function() {
@@ -53,11 +65,46 @@ canvas.addEventListener('mouseup', function() {
 }, false);
 
 var onPaint = function() {
-    ctx.lineTo(mouse.x, mouse.y);
-    ctx.stroke();
+    if(mode == "draw"){
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
+    }    
 };
+
+function onStamp() {
+    var w = ctx.lineWidth;
+    ctx.lineWidth = 2;
+    var rpt = 6;
+    var x = mouse.x - (rpt*.9 * w);
+    var y = mouse.y - (rpt*.9 * w);
+    for (let i = 0; i < rpt; i++) {
+        for (let j = 0; j < rpt; j++) {
+            ctx.beginPath();
+            // ctx.arc(x + j * (w*2.2) , y + i * (w*2.2), w, 0, Math.PI * 2, true);
+            drawStamp(i, j, x, y, w);
+            
+        }}
+    ctx.lineWidth = w;
+}
+
+function drawStamp(i, j, x, y, w) {
+    switch (tool) {
+        case 'circles':
+            ctx.arc(x + j * (w*2.2) , y + i * (w*2.2), w*.9, 0, Math.PI * 2, true);
+            ctx.stroke();
+            break;
+        case 'squares':
+            // ctx.strokeRect(x + j * (w*2.2) , y + i * (w*2.2), w, w);
+            ctx.strokeRect(x + j * (w*2.2) , y + i * (w*2.2), w*1.7, w*1.7)
+            ctx.stroke();
+            break;
+        
+    }
+}
+
 
 $('#reset').on("click", function() {     
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 });
+
