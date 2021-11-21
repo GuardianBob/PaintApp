@@ -1,5 +1,5 @@
 
-
+{% block main %}
 <div class="btn-group btn-group-toggle" data-toggle="buttons" id="controls">
     <button class="btn btn-secondary mode active" id="brush" mode="draw">Brush</button>
     <button class="btn btn-secondary mode" id="eraser" mode="draw">Eraser</button>
@@ -14,5 +14,18 @@
         <input type="range" min="1" max="50" value="2" class="slider" id="brush_size">
     </label>
     <button class="btn btn-danger" id="reset">Clear</button>
-</div>
+    <button class="btn btn-primary" id="save" onclick=saveImage()>Save</button>
+    <button class="btn btn-primary" onclick=checkAllLoaded()>Check  </button>
+    <div class="row">
+        <form method = "post" enctype="multipart/form-data">
+            {% csrf_token %} <!-- name, image, userID -->
+            {{ form.name.label_tag }}
+            <input type="text" name="name" id="name" class="form-control mb-1" value="" required>
+            <input type="file" name="image" id="id_image" required>
+            <input type="text" name="userID" id="userID" class="form-control mb-1" value="{{ user_id }}" hidden>
+            <button type="submit" id="submit" hidden>Save</button>
+        </form>
+    </div>
 
+</div>
+{% endblock %}

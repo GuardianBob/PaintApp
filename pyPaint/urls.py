@@ -15,7 +15,8 @@ urlpatterns = [
     path('validate_register/', login.validate_register, name ='validate_register'),
     # =================== Profile URLs ==========================
     path('profile/<int:user_id>', views.profile, name='profile'),
+    path('imgUpload', views.imgUpload, name='imgUpload'),
+    path('upload', views.upload, name='upload'),
+    path('success', views.success, name = 'success'),
 ]
 
-if settings.DEBUG:
-        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),

@@ -25,5 +25,6 @@ class Profile(models.Model):
 class CanvasImg(models.Model):
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='images/')
+    userID = models.IntegerField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

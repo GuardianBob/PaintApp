@@ -138,7 +138,6 @@ class UpdatePasswordForm(forms.Form):
         return self.cleaned_data
     
 class CanvasForm(forms.ModelForm):
-
     class Meta:
         model = CanvasImg
-        fields = ['name', 'image']
+        fields = ['name', 'image', 'userID']

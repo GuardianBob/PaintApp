@@ -8,13 +8,15 @@ if (canvas.getContext) {
 }
 
 // ctx.save();
-
 var sketch = document.getElementById('sketch');
 var sketch_style = getComputedStyle(sketch);
 var browser_width = window.innerWidth;
 var browser_height = window.innerHeight;
 canvas.width = browser_width * .9;
 canvas.height = browser_height * .9;
+
+ctx.fillStyle = 'white';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 var mode="draw";
 var tool = "brush";

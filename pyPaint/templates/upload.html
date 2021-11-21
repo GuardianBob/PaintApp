@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block main %}
+        <div class="container"> 
+            <div class="row justify-content-left ">
+                <div class="col-md-5 mt-4">
+                    <div class="row">
+                        <form method = "post" enctype="multipart/form-data">
+                            {% csrf_token %} <!-- name, image, userID -->
+                            {{ form.name.label_tag }}
+                            <input type="text" name="name" id="name" class="form-control mb-1" value="">
+                            {{ form.image }}
+                            <input type="text" name="userID" id="userID" class="form-control mb-1" value="{{ user_id }}" hidden>
+                            <button type="submit">Upload</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row justify-content-left ">
+                <div class="col-md-5 mt-4">  
+                </div>                      
+            </div>
+        </div>
+    {% endblock %}
+    
+</body>
+</html>
