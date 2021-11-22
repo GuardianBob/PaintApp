@@ -14,3 +14,9 @@
     margin-right: auto;
     display: block;
 }
+
+#nav_logo_hidden {
+    display: none;
+    padding: 10px;
+    height: 55px;
+}
