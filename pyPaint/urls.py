@@ -18,5 +18,8 @@ urlpatterns = [
     path('imgUpload', views.imgUpload, name='imgUpload'),
     path('upload', views.upload, name='upload'),
     path('success', views.success, name = 'success'),
-]
+    path('activity', views.recent_activity, name="recent_activity"),
+    path('edit_profile', views.edit_profile, name="edit_profile"),
+    path('update_profile', views.update_profile, name="update_profile"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

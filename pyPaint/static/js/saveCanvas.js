@@ -25,7 +25,8 @@ function checkAllLoaded() {
         console.log(load.files.length);
     } else {
         console.log("waiting...")
-        // prepImage();
+        alert("Please click Save.")
+        // prepImage(); // this causes a continuous loop and crashes the app
     }
 }
 
@@ -37,9 +38,7 @@ function saveImage(){
     // }    
     prepImage().then(response => {
         console.log(response.files);
-        if (response == true) {
             checkAllLoaded()
-        }
     }
     
     )
