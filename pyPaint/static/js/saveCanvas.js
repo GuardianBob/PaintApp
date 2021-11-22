@@ -25,28 +25,23 @@ function checkAllLoaded() {
         console.log(load.files.length);
     } else {
         console.log("waiting...")
-        alert("Please click Save.")
         // prepImage(); // this causes a continuous loop and crashes the app
     }
 }
 
 function saveImage(){
-    const load = document.querySelector( "#id_image" );
-    // while (load.files.length == 0) {
-    //     prepImage(load);
-    //     console.log(load.files.length);
-    // }    
-    prepImage().then(response => {
-        console.log(response.files);
-            checkAllLoaded()
-    }
-    
-    )
-    // console.log(load.files);
-
-    // $('form').submit();
+    prepImage();
+    $('#modal_update').hide();
+    $('#modal_save').show();
 }
 
 $('form').submit(function(){
-    prepImage();
+    // prepImage();
+    $('#modal_update').show();
+    $('#modal_save').hide();
+})
+
+$('#exampleModal').on('hidden.bs.modal', function () {
+    $('#modal_update').show();
+    $('#modal_save').hide();
 })

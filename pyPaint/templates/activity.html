@@ -13,10 +13,10 @@
                     {% for art in artwork %}
                         <div class="col">            
                             <div class="card text-center" style="max-width: 250px; max-height: 550px;">
-                                <a href="{{art.image.url}}"><img class="card-img-top" src="{{ art.image.url }}" alt="{{ art.name }}"></a>
+                                <a href="{{art.image.url}}" target="_blank"><img class="card-img-top" src="{{ art.image.url }}" alt="{{ art.name }}"></a>
                                 <div class="card-body">    
                                     <div class="card-text">
-                                        <a href="{{art.image.url}}">{{ art.name }} </a><br>                                        
+                                        <a href="{{art.image.url}}" target="_blank">{{ art.name }} </a><br>                                        
                                         Created by <a href="{% url 'profile' art.userID %}">{{ art.uploaded_by }}</a>
                                     </div>
                                 </div>                          

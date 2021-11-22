@@ -10,9 +10,16 @@
         <div id="sketch">
             <canvas id="paint"></canvas>
         </div>
-    </div>
+    </div>    
     <script src="{% static 'js/paint.js' %}"></script>
     <script src="{% static 'js/control.js' %}"></script>
     <script src="{% static 'js/saveCanvas.js' %}"></script>
+    {% if imgFile != None %}
+        <script type="text/javascript">
+            load_image('{{ imgFile.image.url }}');
+            $('#name').val('{{ imgFile.name }}');        
+        </script>
+    {% endif %}
+
 {% endblock %}
 

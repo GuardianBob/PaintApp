@@ -27,7 +27,6 @@ class CanvasImg(models.Model):
     image = models.ImageField(upload_to='images/')
     userID = models.IntegerField(blank=True)
     collection = models.ManyToManyField(User, related_name="artwork", blank=True, default=0)
-    uploaded_by = models.ForeignKey(User, related_name='art_uploaded', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
