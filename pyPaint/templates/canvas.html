@@ -11,6 +11,11 @@
             <canvas id="paint"></canvas>
         </div>
     </div>    
+    
+
+{% endblock %}
+
+{% block footer %}
     <script src="{% static 'js/paint.js' %}"></script>
     <script src="{% static 'js/control.js' %}"></script>
     <script src="{% static 'js/saveCanvas.js' %}"></script>
@@ -20,6 +25,5 @@
             $('#name').val('{{ imgFile.name }}');        
         </script>
     {% endif %}
-
 {% endblock %}
 
