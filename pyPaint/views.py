@@ -7,26 +7,33 @@ from .forms import *
 from .models import Profile, CanvasImg
 from binascii import a2b_base64
 from base64 import b64decode
-import urllib, io, PIL
+import urllib, io, PIL, os
 
 
 def index(request):
     return render(request, 'index.html')
 
-def canvas(request):
-    user_id = get_user_id(request)
+def canvas(request, img_id=None):
+    imgFile=None        
+    if validate_user(request) is True:
+        if not img_id is None:
+            imgFile = CanvasImg.objects.get(id=img_id)
+            print(imgFile.name)
+    user_id = get_user_id(request)    
     if request.method == 'POST':
         form = CanvasForm(request.POST, request.FILES)
+        print(form)
         if form.is_valid():
             form.save()
             print("Saved!")
             # return HttpResponse('success')
     else:        
-        form = CanvasForm()
-    print(request.user)
+        form = CanvasForm()    
     context = {
         'form' : form, 
-        'user_id': user_id
+        'user_id': user_id,
+        'user': request.user,
+        'imgFile': imgFile,
     }
     return render(request, 'canvas.html', context)
 
@@ -114,58 +121,37 @@ def user_collection(request, profile_id):
     if validate_user(request) is False:
         return redirect('/login')
     profile = User.objects.get(id=profile_id)
-    # books = Book.objects.filter(collection=profile).order_by('-created_at') 
     context = {
         'profile': profile,
-        # 'books': books,
     }
     return render(request, "user_art.html", context)
 
 def edit_profile(request):
-    if validate_user(request) is False:
-        return redirect('/login')
-    u_form = UpdateUserForm({
-        'first_name': request.user.first_name,
-        'last_name': request.user.last_name,
-        'email': request.user.email,
-        })
-    # p_form = ProfileUpdateForm(instance=request.user.profile)
-    context = {
-        'u_form': u_form,
-        'p_form': p_form
-    }
-    return render(request, 'profile.html', context)
+    # To be added
+    pass
 
 def update_profile(request):
-    if validate_user(request) is False:
-        return redirect('/login')    
-    u_form = UpdateUserForm(request.POST)
-    # p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile) 
-    if not u_form.is_valid() and not p_form.is_valid():
-        context = {
-            'u_form': u_form,
-            'p_form': p_form
-        }
-        return render(request, 'profile.html', context)
-    else:
-        # u_form.save()
-        p_form.save()
-        print(request.POST)
-        user_obj = User.objects.get(id=request.user.id)
-        if request.POST['first_name'] != None or request.POST['first_name'] != "":
-            user_obj.first_name = request.POST['first_name']
-        if request.POST['last_name'] != None or request.POST['last_name'] != "":
-            user_obj.last_name = request.POST['last_name']
-        user_obj.email = request.POST['email']
-        user_obj.save()
-        messages.success(request, f'Your account has been updated!')
-        return redirect(f'/users/{request.user.id}') # Redirect back to profile page
+    # To be added
+    pass
     
 def recent_activity(request): 
-    user_id = get_user_id(request)       
+    validate_user(request)
+    # user_id = get_user_id(request)       
     context = {
         'user': request.user,
-        'user_id': user_id,
+        'user_id': request.user.id,
         'artwork': CanvasImg.objects.order_by('-created_at'),
     }
     return render(request, 'activity.html', context)
+
+def edit_image(request, img_id):
+    if validate_user(request) is False:
+        return redirect('/login')
+    imgFile = CanvasImg.objects.get(id=img_id)
+    context = {
+        'imgFile' : imgFile,
+        'user': request.user,
+        'user_id': request.user.id,
+    }
+    
+    pass 

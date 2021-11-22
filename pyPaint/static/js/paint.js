@@ -20,13 +20,19 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 var mode="draw";
 var tool = "brush";
-$(".mode").on("click", function(){ 
+$(".pick").on("click", function(){ 
     mode=$(this).attr('mode'); 
-    // tool=$(this).attr('id');
-    // console.log(mode, tool);    
+    // tool=$(this).attr('id');     
     let sel_tool = $(this).attr('id');
-    set_tool(tool, sel_tool);
-    $(this).addClass('active').siblings().removeClass('active')
+    // console.log(mode, sel_tool);   
+    set_tool(tool, sel_tool);    
+    $('.active').removeClass('active');
+    $(this).addClass('active');
+    if($(this).attr('mode') == "stamp"){
+        $('#pick_stamp').addClass('active');
+    }
+    // $(this).addClass('active').siblings().removeClass('active')
+    
 });
 
 
@@ -47,11 +53,31 @@ function getColor(color){ctx.strokeStyle = color;}
 
 function getSize(size){ctx.lineWidth = size;}
 
-
+function load_image(url){
+    var image=new Image();
+    image.onload=function(){
+        var percent, img_width, img_height;
+        if(image.width > canvas.width  || image.height > canvas.height){
+            if (image.height > image.width){
+                percent = canvas.height/image.height;           
+            }else{
+                percent = canvas.width/image.width;
+            };
+            img_width = image.width * percent;
+            img_height = image.height * percent;
+        } else {
+            img_width = image.width;
+            img_height = image.height;
+        }
+        ctx.drawImage(image,0,0,img_width,img_height);
+    };
+    image.src=url;    
+}
 //ctx.strokeStyle = 
 //ctx.strokeStyle = document.settings.color[1].value;
 
 canvas.addEventListener('mousedown', function(e) {
+    console.log(mode);
     if(mode == "stamp"){
         onStamp();
     }else {
@@ -79,6 +105,7 @@ function onStamp() {
     var rpt = 6;
     var x = mouse.x - (rpt*.9 * w);
     var y = mouse.y - (rpt*.9 * w);
+    console.log(x, y);
     for (let i = 0; i < rpt; i++) {
         for (let j = 0; j < rpt; j++) {
             ctx.beginPath();
@@ -99,14 +126,13 @@ function drawStamp(i, j, x, y, w) {
             // ctx.strokeRect(x + j * (w*2.2) , y + i * (w*2.2), w, w);
             ctx.strokeRect(x + j * (w*2.2) , y + i * (w*2.2), w*1.7, w*1.7)
             ctx.stroke();
-            break;
-        
+            break;        
     }
 }
-
 
 $('#reset').on("click", function() {     
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 });
+
 

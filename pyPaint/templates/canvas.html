@@ -1,16 +1,25 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %}<title>Paint Canvas</title>{% endblock %}
+
 {% block main %}
     <div>
-        {% block controls %}
-            {% include 'controls.html' %}
-        {% endblock controls%}
+            {% block controls %}
+                {% include 'controls.html' %}
+            {% endblock controls%}
         <div id="sketch">
             <canvas id="paint"></canvas>
         </div>
-    </div>
+    </div>    
     <script src="{% static 'js/paint.js' %}"></script>
     <script src="{% static 'js/control.js' %}"></script>
     <script src="{% static 'js/saveCanvas.js' %}"></script>
+    {% if imgFile != None %}
+        <script type="text/javascript">
+            load_image('{{ imgFile.image.url }}');
+            $('#name').val('{{ imgFile.name }}');        
+        </script>
+    {% endif %}
+
 {% endblock %}
 
