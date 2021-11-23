@@ -1,5 +1,10 @@
-# PaintApp
+# Paython Paint App
 Paint App for hackathon challenge
+
+* [Hackathon Instructions](#instructions)
+* [About Python Paint App](#about)
+* [Features](#features)
+* [Known Issues](#known-issues)
 
 ## Instructions
 ### Paint App - Becoming Bob Ross
@@ -29,3 +34,36 @@ A big welcome to our first cohort of UX/UI designers! Your teams are super fortu
 - [Aggie.io](https://aggie.io/)
 - [Free Coloring Pages](https://www.free-coloring-pages.com/online.html)
 Best of luck, and make sure to consult the [Hiring Hackathon Guide](https://info.mintbean.io/hiring-hackathon-guide)! -->
+
+## About
+
+## Features
+### Controls
+- Simple Brush
+- Eraser
+- Pattern Stamp Tool
+- Color Picker
+- Brush Size Slider
+- Clear Canvas Button
+
+### Functionality
+- Resize Brush/Eraser/Stamp
+- Stores size for each tool
+- Stores color for each tool
+- User account creation
+- Save canvas to account
+- Account view
+- View user saved art
+- View recent activity
+
+### Functionality to be Added
+- Additional brush shapes
+- Additional stamp shapes
+- Line/Shape tool
+- Fill tool
+- Undo/Redo
+- Load/Paste Image
+- Delete saved art
+
+## Known Issues
+See [Issues](https://github.com/GuardianBob/PaintApp/issues) for a list of known bugs.
