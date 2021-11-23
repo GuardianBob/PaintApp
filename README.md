@@ -1,4 +1,4 @@
-![Splash Page](./screenshots/SplashPage.JPG)
+![Splash Page](./screenshots/Title.JPG)
 # Python Paint App
 Paint App for hackathon challenge
 
