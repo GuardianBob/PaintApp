@@ -72,4 +72,5 @@ This is a simple Web painting application built using the Django framework and J
 
 ## Known Issues
 See [Issues](https://github.com/GuardianBob/PaintApp/issues) for a list of known bugs.
-- [ ] #12
+
+- [ ] https://github.com/GuardianBob/PaintApp/issues/12
