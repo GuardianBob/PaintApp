@@ -1,6 +1,8 @@
 # PaintApp
 Paint App for hackathon challenge
 
+*[Hackathon Instructions](instructions)
+
 ## Instructions
 ### Paint App - Becoming Bob Ross
 Computers have been a boon for creativity and imagination. Digital art has, for decades now, been a medium in its own right; and with the advent of NFTs, the future might be very bright indeed for digital artists. Today, we'll build an app that lets your friends and loved ones express their creative side.
