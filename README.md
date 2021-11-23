@@ -1,4 +1,4 @@
-# Paython Paint App
+# Python Paint App
 Paint App for hackathon challenge
 
 * [Hackathon Instructions](#instructions)
