@@ -59,6 +59,11 @@ $('#exampleModal').on('hidden.bs.modal', function () {
     $('#modal_save').hide();
 })
 
+$('.delete').on('click', function(){
+    var img_id = $(this).attr('img_id');
+    document.getElementById('modal_delete').onclick=function(){remove_image(img_id)};
+})
+
 function remove_image(img_id) {
     $.ajax({
         url: "/remove/" + img_id + "",
