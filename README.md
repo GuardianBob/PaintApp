@@ -1,7 +1,7 @@
 # PaintApp
 Paint App for hackathon challenge
 
-* [Hackathon Instructions](instructions)
+* [Hackathon Instructions](#instructions)
 
 ## Instructions
 ### Paint App - Becoming Bob Ross
