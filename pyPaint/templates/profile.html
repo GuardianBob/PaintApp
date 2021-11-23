@@ -21,7 +21,7 @@
         <div class="container justify-contents-center">
             <div class="row row-cols-1 row-cols-md-4 g-4" id="results">   
                 {% for art in artwork %}
-                <div class="col">            
+                <div class="col" id="image_{{ art.id }}">            
                     <div class="card text-center" style="max-width: 250px; max-height: 550px;">
                         <a href="{{art.image.url}}" target="_blank"><img class="card-img-top" src="{{ art.image.url }}" alt="{{ art.name }}"></a>
                         <div class="card-body">    
@@ -29,7 +29,10 @@
                                 <a href="{{art.image.url}}" target="_blank">{{ art.name }} </a><br>                                        
                                 {% if profile == request.user %}
                                 <!-- <a href="#" onclick="remove_from_collection('{{art.id}}')">Remove</a> -->
-                                    <a href="{% url 'edit_image' art.id %}">Edit</a>
+                                    <span>
+                                        <a href="{% url 'edit_image' art.id %}" class="btn btn-sm btn-primary">Edit</a>
+                                        <a href="#" onclick="remove_image('{{art.id}}')" class="btn btn-sm btn-danger">Remove</a>
+                                    </span>    
                                 {% endif %}
                             </div>
                         </div>                          
@@ -39,4 +42,8 @@
             </div>                    
         </div>
     </div>
+{% endblock %}
+
+{% block footer %}
+    <script src="{% static 'js/saveCanvas.js' %}"></script>
 {% endblock %}

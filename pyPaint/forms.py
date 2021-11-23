@@ -140,4 +140,4 @@ class UpdatePasswordForm(forms.Form):
 class CanvasForm(forms.ModelForm):
     class Meta:
         model = CanvasImg
-        fields = ['name', 'image', 'userID']
+        fields = ['name', 'image', 'userID', 'created_by']

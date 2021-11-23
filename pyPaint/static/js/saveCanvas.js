@@ -1,4 +1,4 @@
-var csrftoken = getCookie('csrftoken');
+// var csrftoken = getCookie('csrftoken');
 
 async function prepImage(){    
     const dT = new DataTransfer();
@@ -29,19 +29,49 @@ function checkAllLoaded() {
     }
 }
 
+$('#canvas_save').on('click', function(){
+    var name=document.getElementById("name").value;
+    console.log(name);
+    if(name !== '') {
+        prepImage();
+        $('#modal_update').hide();
+        $('#modal_save').show();
+    }else{
+        $('#modal_update').show();
+        $('#modal_save').hide();
+    };
+})
+
 function saveImage(){
     prepImage();
     $('#modal_update').hide();
     $('#modal_save').show();
 }
 
-$('form').submit(function(){
-    // prepImage();
-    $('#modal_update').show();
-    $('#modal_save').hide();
-})
+// $('form').submit(function(){
+//     // prepImage();
+//     $('#modal_update').show();
+//     $('#modal_save').hide();
+// })
 
 $('#exampleModal').on('hidden.bs.modal', function () {
     $('#modal_update').show();
     $('#modal_save').hide();
 })
+
+function remove_image(img_id) {
+    $.ajax({
+        url: "/remove/" + img_id + "",
+        success: function (response){   
+            console.log(response);
+            // var images = response['images'];
+            $(`#image_${img_id}`).remove();
+            
+            return response
+        // },
+        // error: function (response) {
+        //     // alert the error if any error occured
+        //     console.log(response.responseJSON.errors)
+        }
+    });
+}

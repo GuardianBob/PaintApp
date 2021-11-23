@@ -24,8 +24,9 @@ def canvas(request, img_id=None):
         form = CanvasForm(request.POST, request.FILES)
         print(form)
         if form.is_valid():
-            form.save()
-            print("Saved!")
+            imgFile=form.save()
+            print(imgFile)
+            
             # return HttpResponse('success')
     else:        
         form = CanvasForm()    
@@ -152,6 +153,16 @@ def edit_image(request, img_id):
         'imgFile' : imgFile,
         'user': request.user,
         'user_id': request.user.id,
-    }
-    
+    }    
     pass 
+
+def remove_image(request, img_id):
+    if validate_user(request) is False:
+        return redirect('/login')
+    image = CanvasImg.objects.get(id=img_id)
+    image.image.delete() if image.image else None
+    image.delete()
+    
+    response = 'success'
+    # print(books)
+    return HttpResponse("Delete Successful!")
