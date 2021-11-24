@@ -18,16 +18,17 @@ def canvas(request, img_id=None):
     if validate_user(request) is True:
         if not img_id is None:
             imgFile = CanvasImg.objects.get(id=img_id)
-            print(imgFile.name)
+            # print(imgFile.name)
     user_id = get_user_id(request)    
     if request.method == 'POST':
         form = CanvasForm(request.POST, request.FILES)
-        print(form)
         if form.is_valid():
-            imgFile=form.save()
-            print(imgFile)
-            
-            # return HttpResponse('success')
+            print("worked!")
+            imgFile = CanvasImg.objects.filter(userID=user_id).latest('created_at')
+            return redirect(f'/canvas/{imgFile.id}')
+        else:
+            # print("what??")
+            print(form.is_valid())
     else:        
         form = CanvasForm()    
     context = {

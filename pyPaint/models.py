@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User, AbstractUser
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from .storage import OverwriteStorage
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE) # Delete profile when user is deleted
@@ -24,7 +25,7 @@ class Profile(models.Model):
         
 class CanvasImg(models.Model):
     name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(storage=OverwriteStorage(), upload_to='images/')
     userID = models.IntegerField(blank=True)
     collection = models.ManyToManyField(User, related_name="artwork", blank=True, default=0)
     created_by = models.ForeignKey(User, related_name='created', on_delete=models.CASCADE)

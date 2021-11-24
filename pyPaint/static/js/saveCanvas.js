@@ -4,8 +4,17 @@ async function prepImage(){
     const dT = new DataTransfer();
     const load = document.querySelector( "#id_image" );
     await canvas.toBlob( (blob) => {
-        var name = document.getElementById('name').value;    
-        const file = new File( [ blob ], `${name}.png` );
+        var name = document.getElementById('name').value;
+        var userID = document.getElementById('userID').value;
+        var timestamp = new Date().getTime();
+        var file_path = document.getElementById('file_name').value;
+        var file_name = file_path.replace(/^.*[\\\/]/, '');
+        console.log(file_name);
+        let file = new File( [ blob ], `${name}_${userID}_${timestamp}.png` );
+        if (file_name != '') {
+            file = new File( [ blob ], file_name);
+        };
+        console.log(file);
         // const dT = new DataTransfer();
         // const load = document.querySelector( "#id_image" );
         dT.items.add( file );
@@ -31,7 +40,7 @@ function checkAllLoaded() {
 
 $('#canvas_save').on('click', function(){
     var name=document.getElementById("name").value;
-    console.log(name);
+    // console.log(name);
     if(name !== '') {
         prepImage();
         $('#modal_update').hide();

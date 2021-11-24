@@ -112,9 +112,10 @@
                             {{ form.name.label_tag }}
                             <input type="text" name="name" id="name" class="form-control mb-1" value="{{ imgFile.name }}" required>
                             <input type="file" name="image" id="id_image" required hidden>
-                            <input type="text" name="userID" id="userID" class="form-control mb-1" value="{{ user_id }}" hidden>
-                            <input type="text" name="created_by" id="id_created_by" class="form-control mb-1" value="{{ user.id }}" hidden>
-                            <!-- <button type="submit" id="submit" hidden>Save</button> -->
+                            <input type="number" name="userID" id="userID" class="form-control mb-1" value="{{ user_id }}" hidden>
+                            <input type="number" name="created_by" id="created_by" class="form-control mb-1" value="{{ user.id }}" hidden>
+                            <input type="number" name="image_id" id="image_id" class="form-control mb-1" value="{{ imgFile.id }}" hidden>
+                            <input type="text" name="file_name" id="file_name" class="form-control mb-1" value="{{ imgFile.image }}" hidden>
                         </form>
                     </div>
                     <div class="alert alert-danger">Make sure to click "Save" after naming file!</div>
