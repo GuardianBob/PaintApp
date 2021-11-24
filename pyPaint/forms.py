@@ -4,6 +4,7 @@ from django import forms
 import datetime, bcrypt
 from django.forms.widgets import TextInput
 from .models import *
+from .storage import OverwriteStorage
 
 LEVEL_SELECT = (
     ('False', 'Normal'),
@@ -137,7 +138,35 @@ class UpdatePasswordForm(forms.Form):
 
         return self.cleaned_data
     
-class CanvasForm(forms.ModelForm):
-    class Meta:
-        model = CanvasImg
-        fields = ['name', 'image', 'userID']
+class CanvasForm(forms.Form):
+    name = forms.CharField(max_length=50)
+    image = forms.ImageField()
+    userID = forms.IntegerField(required=False)
+    created_by = forms.IntegerField()
+    image_id = forms.IntegerField(required=False)
+    
+    # class Meta:
+    #     model = CanvasImg
+        # fields = ['name', 'image', 'userID', 'created_by']
+        
+    def clean(self):
+        super(CanvasForm, self).clean()
+        # print(self)
+        data = self.cleaned_data
+        data['created_by'] = User.objects.get(id=data.get('userID'))
+        print(data)
+        try:            
+            image = CanvasImg.objects.get(id=data.get('image_id'))
+            print('image: ', image)      
+            for key, value in data.items():
+                setattr(image, key, value)         
+            image.save()     
+            
+        except CanvasImg.DoesNotExist:
+            print("Doesn't exist")
+            del data['image_id']
+            image = CanvasImg.objects.create(**data)
+            # image.save()
+        
+        # print('form', image.id)
+        return image
