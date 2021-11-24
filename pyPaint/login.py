@@ -44,7 +44,7 @@ def validate_register(request):
         user = User.objects.create_user(first_name=request.POST['first_name'], last_name=request.POST['last_name'], email=request.POST['email'], password=password, username=request.POST['username'])
         request.session['user_id'] = user.id
         request.user = user
-        return redirect('/')
+        return redirect('/canvas')
 
 def add_new_user(request):
     validate_register(request)
@@ -76,7 +76,7 @@ def validate_login(request):
     else:
         request.session["user_id"] = user.id
         request.user = user
-        return redirect('/')
+        return redirect('/canvas')
 
 def logout_view(request):
     logout(request)
