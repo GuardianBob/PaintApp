@@ -11,6 +11,10 @@ A basic paint app built for a jr. dev hackathon challenge
     * [Deploying on Local Server](#deploying-on-local-server)
     * [Deploying on Python Anywhere](#deploying-on-python-anywhere)
 * [About the Developer](#about-the-developer)
+* [Demo Screen-Captures](#demo-screen-captures)
+    * [Basic Controls](#basic-controls)
+    * [Save, Edit, and Delete](#save-edit-and-delete)
+    * [Gallery View and Profiles](gallery-view-and-profile)
 
 ## Demo:
 [Live Demo](http://3.21.234.185)
@@ -138,3 +142,14 @@ My name is Jesse Meyer and I am a full stack developer.  I've been dabbling in c
 I built this app for a jr dev hackathon hiring event through [Mintbean](https://mintbean.io).  For more on how I created this app, the process I went through and the challenges I had to solve, please visit the demo's [landing page](http://3.21.234.185/).
 
 Cheers!
+
+## Demo Screen Captures
+
+### Basic Controls
+![Basic Controls](./screenshots/Paint_Controls.gif)
+
+### Save, Edit, and Delete
+![Save Edit Delete](./screenshots/Save_Edit_Delete.gif)
+
+### Gallery View and Profiles
+![Gallery View and Profiles](./screenshots/Gallery_Profiles.gif)
