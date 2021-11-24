@@ -23,12 +23,11 @@ def canvas(request, img_id=None):
     if request.method == 'POST':
         form = CanvasForm(request.POST, request.FILES)
         if form.is_valid():
-            print("worked!")
+            # print("worked!")
             imgFile = CanvasImg.objects.filter(userID=user_id).latest('created_at')
             return redirect(f'/canvas/{imgFile.id}')
-        else:
-            # print("what??")
-            print(form.is_valid())
+        # else:
+        #     print(form.is_valid())
     else:        
         form = CanvasForm()    
     context = {
@@ -68,7 +67,7 @@ def profile(request, user_id):
         return redirect('/login')
     profile = User.objects.get(id=user_id)  
     artwork = CanvasImg.objects.filter(userID=profile.id).order_by('-created_at')
-    print(request.user)
+    # print(request.user)
     context = {
         'user': request.user,
         'profile': profile,
