@@ -122,7 +122,7 @@ NOTE: This next step only works on Python 3.6 or higher:
     - [https://docs.djangoproject.com/en/3.2/intro/tutorial02/#creating-an-admin-user](https://docs.djangoproject.com/en/3.2/intro/tutorial02/#creating-an-admin-user)
 - You should now be ready to launch your local copy!
 - Run the following command
-    - python manage.py runserver
+    - `python manage.py runserver`
 
 ### Deploying on Python Anywhere:
 Python Anywhere's instructions are very detailed and should be enough to help you get a copy up and running.
