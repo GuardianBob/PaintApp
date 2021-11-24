@@ -124,6 +124,7 @@ def user_collection(request, profile_id):
     profile = User.objects.get(id=profile_id)
     context = {
         'profile': profile,
+        'user': request.user,
     }
     return render(request, "user_art.html", context)
 
