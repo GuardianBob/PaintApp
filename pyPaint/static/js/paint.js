@@ -13,7 +13,7 @@ var sketch_style = getComputedStyle(sketch);
 var browser_width = window.innerWidth;
 var browser_height = window.innerHeight;
 canvas.width = browser_width * .9;
-canvas.height = browser_height * .9;
+canvas.height = browser_height * .7;
 
 ctx.fillStyle = 'white';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -99,20 +99,28 @@ var onPaint = function() {
 };
 
 function onStamp() {
-    var w = ctx.lineWidth;
-    ctx.lineWidth = 2;
-    var rpt = 6;
-    var x = mouse.x - (rpt*.9 * w);
-    var y = mouse.y - (rpt*.9 * w);
-    console.log(x, y);
-    for (let i = 0; i < rpt; i++) {
-        for (let j = 0; j < rpt; j++) {
-            ctx.beginPath();
-            // ctx.arc(x + j * (w*2.2) , y + i * (w*2.2), w, 0, Math.PI * 2, true);
-            drawStamp(i, j, x, y, w);
-            
-        }}
-    ctx.lineWidth = w;
+    if(tool == 'bucket'){
+        var imgSrc
+        canvas.toBlob(function (blob) {
+            imgSrc = URL.createObjectURL(blob);
+        })
+        URL.revokeObjectURL(imgSrc);
+        bucket_click(mouse.x, mouse.y, imgSrc);
+    }else {
+        var w = ctx.lineWidth;
+        ctx.lineWidth = 2;
+        var rpt = 6;
+        var x = mouse.x - (rpt*.9 * w);
+        var y = mouse.y - (rpt*.9 * w);
+        // console.log(x, y);
+        for (let i = 0; i < rpt; i++) {
+            for (let j = 0; j < rpt; j++) {
+                ctx.beginPath();
+                // ctx.arc(x + j * (w*2.2) , y + i * (w*2.2), w, 0, Math.PI * 2, true);
+                drawStamp(i, j, x, y, w);            
+            }}
+        ctx.lineWidth = w;
+    }
 }
 
 function drawStamp(i, j, x, y, w) {

@@ -16,9 +16,10 @@
 {% endblock %}
 
 {% block footer %}
-    <script src="{% static 'js/paint.js' %}"></script>
-    <script src="{% static 'js/control.js' %}"></script>
-    <script src="{% static 'js/saveCanvas.js' %}"></script>
+<script src="{% static 'js/paint.js' %}"></script>
+<script src="{% static 'js/control.js' %}"></script>
+<script src="{% static 'js/saveCanvas.js' %}"></script>    
+<script src="{% static 'js/fill_bucket.js' %}"></script>    
     {% if imgFile != None %}
         <script type="text/javascript">
             load_image('{{ imgFile.image.url }}');

@@ -1,6 +1,7 @@
-let brush = {};
-let eraser = {};
-let stamp = {};
+let brush = {},
+    eraser = {},
+    stamp = {},
+    bucket = {};
 var tool = "brush";
 var colorPicker = document.querySelector("#colorPicker");
 var slider = document.getElementById("brush_size");
@@ -64,6 +65,9 @@ function set_tool(tool, sel_tool){
         case 'eraser':
             eraser.size = slider.value;
             break;
+        case 'eraser':
+            bucket.color = colorPicker.value;
+            break;
         case 'circles':
         case 'squares':
             stamp.size = slider.value;
@@ -83,11 +87,13 @@ function switchTool(sel_tool) {
         case 'eraser':
             typeof eraser.size === 'undefined' ? null : slider.value = eraser.size, output.innerHTML = eraser.size, getColor('white'), getSize(eraser.size);
             break;
+        case 'bucket':         
+            getColor(colorPicker.value);
+            break;
         case 'circles':
         case 'squares':
             typeof stamp.size === 'undefined' ? null : slider.value = stamp.size, output.innerHTML = stamp.size, getSize(stamp.size);
             typeof stamp.color === 'undefined' ? null : colorPicker.value = stamp.color, getColor(stamp.color);
             break;
-        
     }
 }
