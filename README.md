@@ -14,8 +14,9 @@ Paint App for hackathon challenge
 
 ## Demo:
 [Live Demo](http://3.21.234.185)
-### NOTE: There is no SSL certificate so "https://" will NOT work, you must make sure to use "http://" in front of the IP address.
-
+```
+NOTE: There is no SSL certificate so "https://" will NOT work, you must make sure to use "http://" in front of the IP address.
+```
 ## Hackathon Instructions
 ### Paint App - Becoming Bob Ross
 Computers have been a boon for creativity and imagination. Digital art has, for decades now, been a medium in its own right; and with the advent of NFTs, the future might be very bright indeed for digital artists. Today, we'll build an app that lets your friends and loved ones express their creative side.
