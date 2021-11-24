@@ -14,7 +14,7 @@ A basic paint app built for a jr. dev hackathon challenge
 * [Demo Screen-Captures](#demo-screen-captures)
     * [Basic Controls](#basic-controls)
     * [Save, Edit, and Delete](#save-edit-and-delete)
-    * [Gallery View and Profiles](gallery-view-and-profiles)
+    * [Gallery View and Profiles](#gallery-view-and-profiles)
 
 ## Demo:
 [Live Demo](http://3.21.234.185)
