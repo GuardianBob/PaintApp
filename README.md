@@ -6,6 +6,10 @@ Paint App for hackathon challenge
 * [About Python Paint App](#about)
 * [Features](#features)
 * [Known Issues](#known-issues)
+* [Tech Stack](#tech-stack)
+* [Deploying](#deploying)
+    * [Deploying on Local Server](#deploying-on-local-server)
+    * [Deploying on Python Anywhere](#deploying-on-python-anywhere)
 
 ## Demo:
 [Live Demo](http://3.21.234.185)
@@ -73,3 +77,40 @@ This is a simple Web painting application built using the Django framework and J
 
 ## Known Issues
 See [Issues](https://github.com/GuardianBob/PaintApp/issues) for a list of known bugs.
+
+## Tech Stack
+- Python 3.9
+- Django 
+
+## Deploying
+There are several resources for deploying Django Apps.  One of the simplest platforms is Python Anywhere, which has a free tier.  I highly recommend this one because of how straightforward it is.  I've deployed on an AWS EC2 server for my own practice which is much more complicated and doesn't automatically set up SSL for you.
+### Deploying on Local Server:
+- Clone a copy of the project
+- Using venv, create a virtual environment for the project
+- Launch the virtual environment and use the "requirements.txt" to install all of the required dependancies including the version of Django this project was built on.
+```
+NOTE: From this point, all commands should be run while working in the virtual environment you created
+```
+- From the command prompt/terminal, making sure you are working in the virtual environment, navigate to the folder containing the project
+- Create a file in the program folder, "paintApp", called ".env"
+```
+NOTE: This next step only works on Python 3.6 or higher:
+```
+- From the command prompt/terminal run:
+    - `python -c "import secrets; print(secrets.token_urlsafe())"`
+- This will generate a secret key for the project
+- Copy the newly created secret key, open .env in a code/text editor and add the following line (quotes seem to be optional):
+    - `SECRET_KEY='*your_secret_key_here*'`
+- save and close the .env file
+- Run the following commands to create and set up the database:
+    - `python manage.py makemigrations`
+    - `python manage.py migrate`
+- Setting up an admin or superuser account is pretty straight forward in the documentation.  Refere to the following link for step-by-step
+    - [https://docs.djangoproject.com/en/3.2/intro/tutorial02/#creating-an-admin-user](https://docs.djangoproject.com/en/3.2/intro/tutorial02/#creating-an-admin-user)
+- You should now be ready to launch your local copy!
+- Run the following command
+    - python manage.py runserver
+
+### Deploying on Python Anywhere:
+Python Anywhere's instructions are very detailed and should be enough to help you get a copy up and running.
+- [https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/)
