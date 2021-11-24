@@ -132,7 +132,8 @@ Python Anywhere's instructions are very detailed and should be enough to help yo
 > [LinkedIn Profile](https://www.linkedin.com/in/meyerjg)
 
 My name is Jesse Meyer and I am a full stack developer.  I've been dabbling in coding since highschool, back in the days of AOL, GeoCities, and AngelFire.  I spent a few years as a Graphic Designer and Web Developer, working mostly in WordPress for my web development.  Recently I decided to make the switch to software development and switch careers.  I completed the Python Full Stack course at Coding Dojo, earning a black belt from my final project which can be seen here:
-    - [Veterinary ER Hospital Shift Scheduler](https://github.com/GuardianBob/ShiftScheduler)
+
+- [Veterinary ER Hospital Shift Scheduler](https://github.com/GuardianBob/ShiftScheduler)
 
 I built this app for a jr dev hackathon hiring event through [Mintbean](https://mintbean.io).  For more on how I created this app, the process I went through and the challenges I had to solve, please visit the demo's [landing page](http://3.21.234.185/)
 
