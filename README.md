@@ -9,6 +9,7 @@ Paint App for hackathon challenge
 
 ## Demo:
 [Live Demo](http://3.21.234.185)
+### NOTE: There is no SSL certificate so "https://" will NOT work, you must make sure to use "http://" in front of the IP address.
 
 ## Hackathon Instructions
 ### Paint App - Becoming Bob Ross
