@@ -135,6 +135,6 @@ My name is Jesse Meyer and I am a full stack developer.  I've been dabbling in c
 
 - [Veterinary ER Hospital Shift Scheduler](https://github.com/GuardianBob/ShiftScheduler)
 
-I built this app for a jr dev hackathon hiring event through [Mintbean](https://mintbean.io).  For more on how I created this app, the process I went through and the challenges I had to solve, please visit the demo's [landing page](http://3.21.234.185/)
+I built this app for a jr dev hackathon hiring event through [Mintbean](https://mintbean.io).  For more on how I created this app, the process I went through and the challenges I had to solve, please visit the demo's [landing page](http://3.21.234.185/).
 
 Cheers!
