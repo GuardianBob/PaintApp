@@ -17,9 +17,7 @@ A basic paint app built for a jr. dev hackathon challenge
     * [Gallery View and Profiles](#gallery-view-and-profiles)
 
 ## Demo:
-[Live Demo](http://3.21.234.185)
-
-> #### NOTE: There is no SSL certificate so "https://" will NOT work, you must make sure to use "http://" in front of the IP address.
+[Live Demo](https://jmeyer.pythonanywhere.com/)
 
 ## Hackathon Instructions
 ### Paint App - Becoming Bob Ross
@@ -100,7 +98,8 @@ NOT compatable with Internet Explorer
 - Canvas API
 
 ## Deploying
-There are several resources for deploying Django Apps.  One of the simplest platforms is Python Anywhere, which has a free tier.  I highly recommend this one because of how straightforward it is.  I've deployed on an AWS EC2 server for my own practice which is much more complicated and doesn't automatically set up SSL for you.
+There are several resources for deploying Django Apps.  One of the simplest platforms is Python Anywhere, which has a free tier.  I highly recommend this one because of how straightforward it is.
+
 ### Deploying on Local Server:
 - Clone a copy of the project
 - Using venv, create a virtual environment for the project
@@ -139,7 +138,7 @@ I've been dabbling in coding since highschool, back in the days of AOL, GeoCitie
 
 - [Veterinary ER Hospital Shift Scheduler](https://github.com/GuardianBob/ShiftScheduler)
 
-I built this app for a jr dev hackathon hiring event through [Mintbean](https://mintbean.io).  For more on how I created this app, the process I went through and the challenges I had to solve, please visit the demo's [landing page](http://3.21.234.185/).
+I built this app for a jr dev hackathon hiring event through [Mintbean](https://mintbean.io).  For more on how I created this app, the process I went through and the challenges I had to solve, please visit the demo's [landing page](https://jmeyer.pythonanywhere.com/).
 
 Cheers!
 
