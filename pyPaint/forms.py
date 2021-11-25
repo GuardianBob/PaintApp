@@ -154,16 +154,16 @@ class CanvasForm(forms.Form):
         # print(self)
         data = self.cleaned_data
         data['created_by'] = User.objects.get(id=data.get('userID'))
-        print(data)
+        # print(data)
         try:            
             image = CanvasImg.objects.get(id=data.get('image_id'))
-            print('image: ', image)      
+            # print('image: ', image)      
             for key, value in data.items():
                 setattr(image, key, value)         
             image.save()     
             
         except CanvasImg.DoesNotExist:
-            print("Doesn't exist")
+            # print("Doesn't exist")
             del data['image_id']
             image = CanvasImg.objects.create(**data)
             # image.save()
