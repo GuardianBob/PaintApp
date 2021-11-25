@@ -77,7 +77,6 @@ function load_image(url){
 //ctx.strokeStyle = document.settings.color[1].value;
 
 canvas.addEventListener('mousedown', function(e) {
-    console.log(mode);
     if(mode == "stamp"){
         onStamp();
     }else {
