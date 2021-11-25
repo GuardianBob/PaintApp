@@ -13,6 +13,8 @@ $(document).ready(function(){
     return new bootstrap.Tooltip(tooltipTriggerEl)
     })
     
+    $('#id_username').addClass('form-control');
+    $('#id_password').addClass('form-control');
 });
 
 function openNav() {
