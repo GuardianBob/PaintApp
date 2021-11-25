@@ -26,3 +26,4 @@ function closeNav() {
 function toggleCode(div) {
     $(div).toggle({height: 'toggle'});
 }
+

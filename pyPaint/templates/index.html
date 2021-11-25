@@ -22,7 +22,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-md-12 text-center">
-                <a href="canvas" class="btn btn-outline-primary m-3 fs-3 " style="width: 200px;">Demo</a>
+                <a href="canvas" class="btn btn-outline-primary m-3 fs-3 " style="width: 200px; ">Demo</a>
                 <a href="https://github.com/GuardianBob/PaintApp" class="btn btn-outline-primary m-3 fs-3 " style="width: 200px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
@@ -33,16 +33,23 @@
         <div class="row justify-content-center mt-4">
             <div class="col-md-10 text-left ">
                 <p>
-                    This is a simple Web painting application built using the Django framework and JavaScript to allow interaction with the canvas. 
-
+                    This is a simple Web painting application built using the Django framework and JavaScript to allow interaction with a JavaScript canvas.  
+                    The goal of this project is to complete a jr dev hackathon challenge hosted by <a href="https://mintbean.io" target="_blank" alt="MintBean.io">MintBean</a>.  For more 
+                    details on the requirements of this challenge, please visit the project's 
+                    <a href="https://github.com/GuardianBob/PaintApp" target="_blank" alt="PaintApp Repository">GitHub Repository</a>.<br><br>
+                    I've also written a rather lengthy article on some of the challenges I faced during this event and the thought process I went through to solve them.  
+                    Just click the button below to read all about it!
                 </p>
+            </div>
+            <div class="col-md-10 text-center ">
+                <a href="#" class="fs-2 text-center btn btn-outline-primary rounded-pill p-4" style="font-family: 'Yanone Kaffeesatz', sans-serif;">My First Hackathon: Why Does Everything Have to Keep Breaking?!</a>
             </div>
         </div>
         <div class="row m-4 text-light bg-secondary p-4">
             <div class="col-md-12 text-left m-auto ">
                 <div class="row">
                     <span class="col-md-4 mx-auto">
-                        <span class="h4 text-secondary text-light">Controls</span>
+                        <span class="h4 text-secondary text-light fs-2" style="font-family: 'Yanone Kaffeesatz', sans-serif;">Controls</span>
                         <ul class="list-group list-group-flush text-light bg-secondary">
                             <li class="list-group-item text-light bg-secondary">Simple Brush</li>
                             <li class="list-group-item text-light bg-secondary">Eraser</li>
@@ -53,7 +60,7 @@
                         </ul>
                     </span>
                     <span class="col-md-4 mx-auto">
-                        <span class="h4 text-secondary text-light">Features</span>
+                        <span class="h4 text-secondary text-light fs-2" style="font-family: 'Yanone Kaffeesatz', sans-serif;">Features</span>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item text-light bg-secondary">Resize Brush/Eraser/Stamp</li>
                             <li class="list-group-item text-light bg-secondary">Stores size for each tool</li>
@@ -66,7 +73,7 @@
                         </ul>
                     </span>
                     <span class="col-md-4 mx-auto">
-                        <span class="h4 text-secondary text-light">Features to be added</span>
+                        <span class="h4 text-secondary text-light fs-2" style="font-family: 'Yanone Kaffeesatz', sans-serif;">Features to be added</span>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item text-light bg-secondary">Additional brush shapes</li>
                             <li class="list-group-item text-light bg-secondary">Additional stamp shapes</li>
@@ -82,13 +89,13 @@
         </div>
         <div class="row m-4">
             <div class="col-md-12 text-left m-auto">
-                <h3>Tech Stack:</h3>
+                <h3 style="font-family: 'Yanone Kaffeesatz', sans-serif;" class="fs-2">Tech Stack:</h3>
                 <div class="row">
                     <span class="col-md-5 mx-auto">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Python</li>
-                            <li class="list-group-item">Django</li>
-                            <li class="list-group-item">Bootstrap</li>
+                            <li class="list-group-item">Python 3.9</li>
+                            <li class="list-group-item">Django 3.2.8</li>
+                            <li class="list-group-item">Bootstrap 5.0.2</li>
                             <li class="list-group-item">Canvas API</li>
                             <li class="list-group-item">JavaScript / jQuery</li>
                         </ul>
@@ -98,15 +105,33 @@
                             <li class="list-group-item">Font Awesome and Bootstrap icons</li>
                             <li class="list-group-item">Google Fonts</li>
                             <li class="list-group-item">Native color picker and range inputs</li>
-                            <li class="list-group-item">Python Anywhere hosting</li>
+                            <li class="list-group-item">Amazon AWS EC2 Hosting</li>
                         </ul>
                     </span>
                 </div>
             </div>
         </div>
         <div class="row m-4">
-            <div class="col-md-12 text-left m-auto">
-                <a href="https://github.com/GuardianBob/PaintApp/issues" class="btn btn-outline-danger" target="_blank">Known Bugs</a>
+            <div class="col-md-12 text-center m-auto">
+                <hr>
+                <a href="https://github.com/GuardianBob/PaintApp/issues" class="fs-2 text-center btn btn-outline-danger rounded-pill px-5 m-2" style="font-family: 'Yanone Kaffeesatz', sans-serif;">Known Bugs</a>
+                <hr>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-5 text-center my-auto">
+                <h3 style="font-family: 'Yanone Kaffeesatz', sans-serif;" class="fs-1">The Developer: </h3>
+                <img src="{% static 'img/Profile01.jpg' %}" alt="Profile Pic" height="200px" class="rounded-circle my-2">
+                <p class="h1" style="font-family: 'Comforter Brush', cursive;">Jesse Meyer</p>
+            </div>
+            <div class="col-md-5 text-left">
+                <p class="bg-dark text-light p-4 rounded-3 fs-5" style="font-family: 'Yanone Kaffeesatz', sans-serif;">
+                    I've been dabbling in coding since highschool, back in the days of AOL, GeoCities, and AngelFire. 
+                    I spent a few years as a Graphic Designer and Web Developer, working mostly in WordPress for my web development. 
+                    Recently I decided to make the switch to software development and switch careers and completed the Python Full Stack course at Coding Dojo
+                    over this past summer. I love to solve problems and have a passion for creating.  On top of learning to code, I've also spent 
+                    the last couple of years learning how to use my CNC router to create some fine pieces of woodworking art. 
+                </p>
             </div>
         </div>
     </div>    
