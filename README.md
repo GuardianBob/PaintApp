@@ -49,7 +49,7 @@ A big welcome to our first cohort of UX/UI designers! Your teams are super fortu
 Best of luck, and make sure to consult the [Hiring Hackathon Guide](https://info.mintbean.io/hiring-hackathon-guide)! -->
 
 ## About
-This is a simple Web painting application built using the Django framework and JavaScript to allow interaction with the canvas.
+This is a simple Web painting application built using the Django framework and JavaScript to allow interaction with a JavaScript canvas. The goal of this project is to complete a jr dev hackathon challenge hosted by MintBean. 
 
 ## Features
 ### Controls
