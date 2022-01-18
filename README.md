@@ -138,7 +138,13 @@ I've been dabbling in coding since highschool, back in the days of AOL, GeoCitie
 
 - [Veterinary ER Hospital Shift Scheduler](https://github.com/GuardianBob/ShiftScheduler)
 
-I built this app for a jr dev hackathon hiring event through [Mintbean](https://mintbean.io).  For more on how I created this app, the process I went through and the challenges I had to solve, please visit the demo's [landing page](https://jmeyer.pythonanywhere.com/).
+I built this paint app for a jr dev hackathon hiring event through [Mintbean](https://mintbean.io).  For more on how I created this app, the process I went through and the challenges I had to solve, please visit the demo's [landing page](https://jmeyer.pythonanywhere.com/).
+
+### *UPDATE* 
+
+> The results have been posted and the project earned me a Mintbean Star Award.
+To see this, go to [https://hire.mintbean.io](https://hire.mintbean.io), search for my name and look at the details under Project 1
+![Mintbean Star Award](./screenshots/MintbeanStar.JPG)
 
 Cheers!
 
@@ -152,3 +158,4 @@ Cheers!
 
 ### Gallery View and Profiles
 ![Gallery View and Profiles](./screenshots/Gallery_Profiles.gif)
+
